@@ -31,6 +31,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * As a user, I want to be able to click on a keg to see its detail page.
 * As a user, I want to see how many pints are left in a keg. 
 
+## Stretch Goals
+
+* Add functionality to update pints left in keg with a 'pint sold'
+* Add styling to imply that this is an Aquarium bar with Aquairum theme
+* Add ability to manage aquariums in a similar manner to the way kegs are managed
+
 ## Setup/Installation Instructions
 
 Clone this repository from GitHub:
@@ -44,6 +50,10 @@ Open and run this app:
 `$ npm start`
 
 Navigate to localhost:3000 in your browser if it doesn't open automatically.
+
+## Current Issues
+
+_There are no known issues with the app in it's current state. If a bug is found or you would like to give feedback, please contact me at arcolistro@gmail.com or submit a pull request._
 
 ## Available Scripts
 
