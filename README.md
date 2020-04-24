@@ -16,7 +16,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## _Specs_
 
 | Behavior | Input | Output |
-|
+|----------|:-----:|--------|
+| User clicks on the add keg button | 'click' | The app shows the user a form they can fill out to add a Keg |
+| User fills out information for the keg they would like to add in the form and clicks 'submit' | "Corona" "1/23/20" "128" | App shows a new list that includes the newly added keg displaying the information entered in the form | 
+| User clicks on a keg in the main list | 'click' | The app displays the details of that individual keg |
+| The user can navigate to the main list by clicking 'back to list' button | 'click' | App displays main list of all kegs |
+
+## User Stories
+
+
+* As a user, I want to see a list/menu of all available kegs. 
+* For each keg, I want to see its name, brand, price and alcoholContent.
+* As a user, I want to submit a form to add a new keg to a list.
+* As a user, I want to be able to click on a keg to see its detail page.
+* As a user, I want to see how many pints are left in a keg. 
 
 ## Available Scripts
 
