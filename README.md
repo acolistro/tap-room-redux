@@ -13,6 +13,11 @@ _This application will allow the user (ex: a bar manager) to track the kegs of b
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## _Specs_
+
+| Behavior | Input | Output |
+|
+
 ## Available Scripts
 
 In the project directory, you can run:
