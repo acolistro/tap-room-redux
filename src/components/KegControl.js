@@ -42,10 +42,10 @@ class KegControl extends React.Component
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
+    // let pintSoldButton = null;
 
     if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} 
-      onPintSold = {this.handlePintSold} />
+      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} />
       buttonText = "Return to Keg List";
       } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
