@@ -2,6 +2,7 @@ import React from 'react';
 import NewKegForm from './NewKegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
+import { connect } from 'react-redux';
 
 class KegControl extends React.Component
 {
@@ -9,9 +10,8 @@ class KegControl extends React.Component
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [],
       selectedKeg: null,
-      // editing: false
+      editing: false
     };
   }
 
@@ -29,9 +29,53 @@ class KegControl extends React.Component
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMasterKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({masterKegList: newMasterKegList});
+    const { dispatch } = this.props;
+    const { beer, dateTapped, brand, style, pricePerPint, alcoholContent, pintsLeft, id } = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      beer: beer,
+      dateTapped: dateTapped,
+      brand: brand,
+      style: style,
+      pricePerPint: pricePerPint,
+      alcoholContent: alcoholContent,
+      pintsLeft: pintsLeft,
+      id: id
+    }
+    dispatch(action);
     this.setState({formVisibleOnPage: false});
+  }
+  }
+
+  handleDeletingKeg = (id) => {
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedKeg: null});
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const { dispatch } = this.props;
+    const { beer, dateTapped, brand, style, pricePerPint, alcoholContent, pintsLeft, id } = kegToEdit;
+    const action = {
+      type: 'ADD_KEG',
+      beer: beer,
+      dateTapped: dateTapped,
+      brand: brand,
+      style: style,
+      pricePerPint: pricePerPint,
+      alcoholContent: alcoholContent,
+      pintsLeft: pintsLeft,
+      id: id
+    }
+    dispatch(action);
+    this.setState({
+      editing: false,
+      selectedTicket: null
+    });
   }
 
   handlePintSold = (id) => {
@@ -64,5 +108,7 @@ class KegControl extends React.Component
       );
   }
 }
+
+TicketControl = connect()(TicketControl);
 
 export default KegControl;
