@@ -10,10 +10,6 @@ function KegDetail(props) {
       <h3>{keg.beer} - {keg.dateTapped}</h3>
       <h3>{keg.brand} - {keg.style} - {keg.pricePerPint} - {keg.alcoholContent}</h3>
       <h4><em>{keg.pintsLeft}</em></h4>
- 
-      {/* <form onClick={handlePintSold}>
-        <button onClick={ props.onPintSold }>Pint Sold</button>
-      </form> */}
       <hr/>
     </React.Fragment>
   );
