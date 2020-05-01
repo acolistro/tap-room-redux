@@ -42,9 +42,11 @@ class KegControl extends React.Component
 
   handleChangingSelectedKeg = (id) => {
     const { dispatch } = this.props;
-    const action = a.getKeg(id)
+    const selectedKeg = this.props.masterKegList[id];
+    const action = a.getKeg(selectedKeg);
     dispatch(action);
   }
+  
 
   handleEditingKegInList = (kegToEdit) => {
     const { dispatch } = this.props;
