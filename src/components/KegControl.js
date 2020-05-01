@@ -11,17 +11,16 @@ class KegControl extends React.Component
 {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   selectedKeg: null,
-    //   editing: false
-    // };
+    this.state = {
+      selectedKeg: null,
+      editing: false
+    };
   }
 
   handleClick = () => {
     const { dispatch } = this.props;
     const action = a.toggleForm();
-    dispatch(action);
-    this.setState({selectedKeg: null});
+    dispatch(action);;
   }
 
   handleAddingNewKegToList = (newKeg) => {
@@ -43,8 +42,7 @@ class KegControl extends React.Component
 
   handleChangingSelectedKeg = (id) => {
     const { dispatch } = this.props;
-    const selectedKeg = this.props.masterKegList[id];
-    const action = a.getKeg(selectedKeg);
+    const action = a.getKeg(id)
     dispatch(action);
   }
 
@@ -52,7 +50,7 @@ class KegControl extends React.Component
     const { dispatch } = this.props;
     const action = a.addKeg(kegToEdit);
     dispatch(action);
-    const action2 = a.getKeg(kegToEdit);
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 

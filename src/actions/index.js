@@ -12,6 +12,10 @@ export const toggleForm = () => ({
   type: 'TOGGLE_FORM'
 });
 
+export const toList = () => ({
+  type: 'TO_LIST'
+});
+
 export const addKeg = (keg) => {
   const { beer, dateTapped, brand, style, pricePerPint, alcoholContent, pintsLeft, id } = keg;
   return {

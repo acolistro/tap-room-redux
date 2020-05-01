@@ -22,5 +22,10 @@ export default (state = {}, action) => {
     return newState;
   default:
     return state;
+
+  case c.GET_KEG:
+    const newState2 = { ...state };
+    newState2[id] = id;
+    return newState2[id];  
   }
 };
