@@ -15,4 +15,18 @@ describe('help queue actions', () => {
     });
   });
 
+  it('addKeg should create ADD_KEG action', () => {
+    expect(actions.addKeg({ beer: "Bitburger", dateTapped: "1/2/20", brand: "Bitburger", style: "Pilsener", pricePerPint: "$8.00", alcoholContent: "6.0%", pintsLeft: 100, id: 1 })).toEqual({
+      type: 'ADD_KEG',
+      beer: "Bitburger",
+      dateTapped: "1/2/20",
+      brand: "Bitburger",
+      style: "Pilsener",
+      pricePerPint: "$8.00",
+      alcoholContent: "6.0%",
+      pintsLeft: 100,
+      id: 1
+    });
+  });
+
 });
