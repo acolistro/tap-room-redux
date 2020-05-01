@@ -3,6 +3,7 @@ import NewKegForm from './NewKegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
 import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 class KegControl extends React.Component
 {
@@ -45,7 +46,7 @@ class KegControl extends React.Component
     dispatch(action);
     this.setState({formVisibleOnPage: false});
   }
-  }
+  
 
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
@@ -55,6 +56,11 @@ class KegControl extends React.Component
     }
     dispatch(action);
     this.setState({selectedKeg: null});
+  }
+
+  handleChangingSelectedKeg = (id) => {
+    const selectedKeg = this.props.masterKegList[id];
+    this.setState({selectedKeg: selectedKeg});
   }
 
   handleEditingKegInList = (kegToEdit) => {
@@ -74,7 +80,7 @@ class KegControl extends React.Component
     dispatch(action);
     this.setState({
       editing: false,
-      selectedTicket: null
+      selectedKeg: null
     });
   }
 
@@ -88,27 +94,38 @@ class KegControl extends React.Component
     let buttonText = null;
     // let pintSoldButton = null;
 
-    if (this.state.selectedKeg != null) {
+    if (this.state.editing ) {      
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+      buttonText = "Return to Keg List";
+    } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} />
       buttonText = "Return to Keg List";
-      } else if (this.state.formVisibleOnPage) {
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Return to Keg List";
-      } else {
-        currentlyVisibleState = <KegList KegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />
+    } else {
+        currentlyVisibleState = <KegList KegList={this.props.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />
         buttonText = "Add Keg";
-      }
+    }
+    return (
+      <React.Fragment>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+      </React.Fragment>
+    );
+  }  
+}
 
+KegControl.propTypes = {
+  masterKegList: PropTypes.object
+};
 
-      return (
-        <React.Fragment>
-          {currentlyVisibleState}
-          <button onClick={this.handleClick}>{buttonText}</button>
-        </React.Fragment>
-      );
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
   }
 }
 
-TicketControl = connect()(TicketControl);
+KegControl = connect(mapStateToProps)(KegControl);;
 
 export default KegControl;
