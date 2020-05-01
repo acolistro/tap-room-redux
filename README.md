@@ -131,6 +131,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 * Git
 * Webpack
 * ReactJS
+* Redux
 
 Built on VSCode, please use the most updated version of Chrome browser or Mozilla Firefox browser.
 
