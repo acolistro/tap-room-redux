@@ -20,7 +20,7 @@ export const getKeg = (keg) => {
   }
 }
 
-export const deselectKeg = () => ({
+export const noKeg = () => ({
   type: c.NO_KEG
 });
 

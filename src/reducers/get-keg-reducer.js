@@ -4,7 +4,7 @@ export default (state = null, action) => {
   const { beer, dateTapped, brand, style, pricePerPint, alcoholContent, pintsLeft, id } = action;
   switch (action.type) {
   case c.GET_KEG: 
-    const thisKeg = {
+    const selectedKeg = {
       beer: beer,
       dateTapped: dateTapped,
       brand: brand,
@@ -14,7 +14,7 @@ export default (state = null, action) => {
       pintsLeft: pintsLeft,
       id: id
       }    
-      return thisKeg;
+      return selectedKeg;
       case c.NO_KEG:
         return null;
       default:
